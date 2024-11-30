@@ -21,8 +21,8 @@ export const useTaskAPI = create((set) => ({
     }, showAllTasks : async () =>{
         try {
             const res = await axiosInnit.get("/task/my-tasks");
-            console.log(res.data)
-            set({tasks: res.data});
+            
+            set({tasks: res.data.tasks});
         } catch (error) {
             toast.error("Error it is doesnt work!!!")
         }

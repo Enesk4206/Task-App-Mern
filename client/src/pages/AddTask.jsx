@@ -15,7 +15,6 @@ const AddTask = () => {
         if(!description || !name ){
             toast.error("Name or Description field empty")
         }
-        console.log(name,description,checked)
         await createTask({name, description, checked})
         setName("");
         setDescription("");
