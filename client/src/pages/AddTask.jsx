@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useTaskAPI } from '../API/task.api';
 import { toast } from 'react-hot-toast';
+import Navbar from '../components/Navbar';
 
 const AddTask = () => {
     const [name , setName] = useState("");
@@ -21,6 +22,8 @@ const AddTask = () => {
         setChecked(false)
     }
     return (
+        <>
+        <Navbar/>
         <div className='max-h-screen max-w-[900px] mt-20 mx-auto'>
             
             <div className='flex flex-row items-center justify-center bg-sky-900'>
@@ -63,6 +66,7 @@ const AddTask = () => {
                 </div>
             </div>
         </div>
+        </>
     )
 }
 
