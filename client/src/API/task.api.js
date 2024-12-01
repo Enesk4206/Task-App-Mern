@@ -4,7 +4,8 @@ import {create} from "zustand";
 
 
 export const useTaskAPI = create((set) => ({
-    tasks:[],
+    tasks: [],
+    task: {},
 
     createTask : async (taskData) =>{
         try {
@@ -23,6 +24,16 @@ export const useTaskAPI = create((set) => ({
             const res = await axiosInnit.get("/task/my-tasks");
             
             set({tasks: res.data.tasks});
+        } catch (error) {
+            toast.error("Error it is doesnt work!!!")
+        }
+    },
+
+    getDetail: async (id) => {
+        try {
+            const res = await axiosInnit.get(`/task/detail/${id}`);
+            console.log("zustand",res.data.task)
+            set({ task: res.data.task })
         } catch (error) {
             toast.error("Error it is doesnt work!!!")
         }
